@@ -22,7 +22,6 @@ function App() {
         <MainMessage />
         <AboutUs />
         <Services />
-        <Reviews />
         <SecondMessage />
         <Gallery />
         <Map />
