@@ -28,7 +28,7 @@ export default function ImageGrid() {
   ];
 
   return (
-    <div className=" px-8 py-16 bg-white">
+    <div id='galeria' className=" px-8 py-16 bg-white">
       <div className="container mx-auto">
       <h1 className="text-[#1058a5] text-4xl md:text-5xl font-bold text-center mb-12">
             Galeria

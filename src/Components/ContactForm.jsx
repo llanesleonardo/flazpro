@@ -89,7 +89,7 @@ export default function ContactForm() {
   const postUrl = `https://us8.api.mailchimp.com/3.0/lists/2c74c630eb/members`;
 
   return (
-    <div className='bg-white py-14'>
+    <div id='contact' className='bg-white py-14'>
           <div className="  ">
              <h2 className="text-[#1058a5] text-4xl md:text-5xl font-bold text-center mb-12">{'Contactanos'}</h2>
         </div>

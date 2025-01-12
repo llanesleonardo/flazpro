@@ -11,7 +11,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1058a5] text-white pt-12">
+    <footer className="bg-[#1058a5] text-white pt-12 ">
       <div className="w-full mx-auto px-4 flex justify-around items-center">
         {/* Logo Section */}
         <div className="flex-shrink-0 mb-6 ">
@@ -25,24 +25,24 @@ export default function Footer() {
         {/* List of 3 Elements */}
         <div className="flex flex-col items-start mb-6 space-y-2">
           <div className='flex items-center space-x-2'>
-            <img src={phonewhite} alt="phone icon" className="h-12 w-12" />
-            <p className="text-white">1234567890</p>
+            <img src={phonewhite} alt="phone icon" className="h-8 w-8" />
+            <p className="text-white">+1 (520) 289-7508</p>
           </div>
           <div className='flex items-center space-x-2'>
-            <img src={mapiconwhite} alt="phone icon" className="h-12 w-12" />
-            <p className="text-white">Tucson,AZ.</p>
+            <img src={mapiconwhite} alt="phone icon" className="h-8 w-8" />
+            <p className="text-white">Tucson areas , AZ.</p>
           </div>
           <div className='flex items-center space-x-2'>
-            <img src={emailiconwhite} alt="phone icon" className="h-12 w-12" />
-            <p className="text-white">email@email.com.</p>
+            <img src={emailiconwhite} alt="phone icon" className="h-8 w-8" />
+            <p className="text-white">arizonaprolandcaping@gmail.com</p>
           </div>
         </div>
 
         {/* Social Icons */}
         <div className="flex  gap-4 space-x-4 mb-6">
-      <img src={facewhite} className='h-[50px]' />
-      <img src={instacon} className='h-[50px]'/>
-      <img src={whastappicon} className='h-[50px]'/>
+      {/*<img src={facewhite} className='h-[50px]' />
+      <img src={instacon} className='h-[50px]'/>*/}
+      <img src={whastappicon} className='h-[30px]'/>
         </div>
       </div>
 

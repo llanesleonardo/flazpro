@@ -29,10 +29,42 @@ const CarouselItem = ({ color, children }) => (
   </div>
 );
 
+import { useState, useEffect } from 'react';
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [matches, query]);
+
+  return matches;
+}
 
 export default function Services() {
+  
+  const isLargeScreen = useMediaQuery('(min-width: 1025px)');
+  const isMediumScreen = useMediaQuery('(min-width: 768px)');
+  const [itemsPerSlide, setItemsPerSlide] = useState(3);
+
+  useEffect(() => {
+    if (isLargeScreen) {
+      setItemsPerSlide(3);
+    } else if (isMediumScreen) {
+      setItemsPerSlide(2);
+    } else {
+      setItemsPerSlide(1);
+    }
+  }, [isLargeScreen, isMediumScreen]);
+  
   const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
-    itemsPerSlide: 3,
+    itemsPerSlide,
     withLoop: true,
     gutter: 10,
     startEndGutter: 10,
@@ -49,11 +81,7 @@ items: [
         <p className='text-justify'>
         Yard maintenance involves regular care, including mowing, pruning, weeding, and fertilizing. This ensures the health and aesthetics of outdoor spaces, keeping them functional and attractive across seasons for both residential and commercial properties.
         </p>
-        <div className='text-center pt-10'>
-          <a>
-            <button className='bg-[#1058a5] text-white py-2 px-6 rounded-full font-bold'>LEER MAS</button>
-          </a>
-        </div>
+
       </div>
     </CarouselItem>
   },
@@ -69,11 +97,7 @@ items: [
         <p className='text-justify'>
         Paver maintenance includes cleaning, sealing, and repairing paved surfaces to preserve their structure and appearance. Regular upkeep ensures pavers remain attractive, durable, and in excellent condition across all seasons.
         </p>
-        <div className='text-center pt-10'>
-          <a>
-            <button className='bg-[#1058a5] text-white py-2 px-6 rounded-full font-bold'>LEER MAS</button>
-          </a>
-        </div>
+
       </div>
     </CarouselItem>
   },
@@ -89,11 +113,7 @@ items: [
         <p className='text-justify'>
         Grass maintenance includes mowing, watering, and fertilizing, while artificial grass requires debris removal and occasional rinsing. Both options ensure a beautiful lawn, with artificial grass offering low-maintenance durability.
         </p>
-        <div className='text-center pt-10'>
-          <a>
-            <button className='bg-[#1058a5] text-white py-2 px-6 rounded-full font-bold'>LEER MAS</button>
-          </a>
-        </div>
+
       </div>
     </CarouselItem>
   },
@@ -110,11 +130,7 @@ items: [
         Irrigation system maintenance ensures water efficiency through leak checks, cleaning, and adjustments. Regular care promotes plant health, prevents costly repairs, and extends the system's lifespan.
         </p>
         <br/>
-        <div className='text-center pt-10'>
-          <a>
-            <button className='bg-[#1058a5] text-white py-2 px-6 rounded-full font-bold'>LEER MAS</button>
-          </a>
-        </div>
+
       </div>
     </CarouselItem>
   },
@@ -131,11 +147,7 @@ items: [
         Planting ensures proper growth with soil preparation and spacing, while pruning removes unnecessary parts to enhance plant health and aesthetics. Both are essential for long-term vitality.
         </p>
         <br/>
-        <div className='text-center pt-10'>
-          <a>
-            <button className='bg-[#1058a5] text-white py-2 px-6 rounded-full font-bold'>LEER MAS</button>
-          </a>
-        </div>
+
       </div>
     </CarouselItem>
   },
@@ -153,11 +165,6 @@ items: [
         </p>
         <br/>
         <br/>
-        <div className='text-center pt-10'>
-          <a>
-            <button className='bg-[#1058a5] text-white py-2 px-6 rounded-full font-bold'>LEER MAS</button>
-          </a>
-        </div>
       </div>
     </CarouselItem>
   },
@@ -174,11 +181,11 @@ items: [
       Gravel maintenance involves leveling, replenishing, and removing debris to keep surfaces functional and visually appealing. Proper care ensures durability and enhances outdoor aesthetics.
       </p>
     <br/>
-      <div className='text-center pt-10'>
+     {/* <div className='text-center pt-10'>
         <a>
           <button className='bg-[#1058a5] text-white py-2 px-6 rounded-full font-bold'>LEER MAS</button>
         </a>
-      </div>
+      </div>*/}
     </div>
     </CarouselItem>
   }
@@ -187,27 +194,27 @@ items: [
 
   
   return (
-<div className='bg-gray-100' >
-      <section className="w-full py-16 bg-cover bg-center" style={{ backgroundImage: `url(${graylines})` }}>
-        <div className="container mx-auto px-4">
-          <h1 className="text-[#1058a5] text-4xl md:text-5xl font-bold text-center mb-12">
+<div id='servicios' className='bg-gray-100' >
+      <section className="w-full md:py-12 xl:py-16 lg:py-16 xl:bg-cover lg:bg-cover bg-center" style={{ backgroundImage: `url(${graylines})` }}>
+        <div className="container mx-auto px-12">
+          <h1 className="text-[#1058a5] md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-12">
             ¿Qué Ofrecemos?
           </h1>
           <div className="relative">
             <button 
               onClick={slideToPrevItem}
-              className="absolute left-[-100px] top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+              className="absolute md:left-[-70px] lg:left-[-50px] z-[9990] xl:left-[-100px] top-1/2 transform -translate-y-1/2   rounded-full  "
             >
-             <img src={arrowleft}/>
+             <img className='mx-auto lg:w-2/3 xl:w-auto' src={arrowleft}/>
             </button>
             <div className="overflow-hidden">
               {carouselFragment}
             </div>
             <button 
               onClick={slideToNextItem}
-              className="absolute right-[-100px] top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+              className=" absolute md:right-[-70px] lg:right-[-50px] z-[9990] xl:right-[-100px] top-1/2 transform -translate-y-1/2   rounded-full  "
             >
-             <img src={arrowright}/>
+             <img className='mx-auto lg:w-2/3 xl:w-auto' src={arrowright}/>
              </button>
           </div>
         </div>

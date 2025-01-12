@@ -9,13 +9,9 @@
   background-color: #008239;
 }
 
-.diagonal-split {
-  background: linear-gradient(130deg, #008239 30%, #1058a5 30%);
-}
 
-.diagonal-split-gray {
-  background: linear-gradient(130deg, #e8e8e8 83%, #ffffff 10%);
-}
+
+
 
 .whatsapp-icon{
   width: 70px;
@@ -31,4 +27,37 @@
 
 .whatsapp-icon:hover {
   transform: scale(1.1);
+}
+
+
+@media (min-width: 640px) {
+  .responsive-text {
+    font-size: 1rem; /* 16px, equivalent to text-base */
+  }
+}
+
+@media (min-width: 768px) {
+  .diagonal-split{
+    background: linear-gradient(130deg, #008239 33%, #1058a5 33%);
+  }
+
+  .diagonal-split-gray {
+    background: linear-gradient(130deg, #e8e8e8 83%, #ffffff 10%);
+  }
+}
+
+@media (min-width: 1024px) {
+  
+  .diagonal-split-gray {
+    background: linear-gradient(130deg, #e8e8e8 81%, #ffffff 10%);
+  }
+  .diagonal-split {
+    background: linear-gradient(130deg, #008239 30%, #1058a5 30%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-text {
+    font-size: 1.5rem; /* 24px, equivalent to text-2xl */
+  }
 }
