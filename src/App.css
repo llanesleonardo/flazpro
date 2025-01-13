@@ -29,6 +29,92 @@
   transform: scale(1.1);
 }
 
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Width of the toggle */
+  height: 34px; /* Height of the toggle */
+}
+
+.toggle-switch input {
+  opacity: 0; /* Hide the default checkbox */
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Background color when off */
+  border-radius: 34px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: background-color 0.2s ease-in-out; /* Transition for background color */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; /* Height of the slider knob */
+  width: 16px; /* Width of the slider knob */
+  left: 4px; /* Position from left when off */
+  bottom: 4px; /* Position from bottom */
+  background-color: white; /* Knob color */
+  border-radius: 50%; /* Round knob */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for knob */
+  transition: transform 0.2s ease-in-out; /* Transition for knob movement */
+}
+.toggle-container {
+  display: flex;
+  flex-direction: column; /* Stack the toggle and caption vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Width of the toggle */
+  height: 24px; /* Height of the toggle */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.toggle-switch input {
+  opacity: 0; /* Hide the default checkbox */
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Background color when off */
+  border-radius: 34px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: background-color 0.2s ease-in-out; /* Transition for background color */
+}
+
+/* Change styles when the toggle is checked */
+input:checked + .slider {
+  background-color: #4CAF50; /* Background color when on */
+}
+
+/* Optional styles for the caption */
+.language-caption {
+  margin-top: 8px; /* Space between toggle and caption */
+  font-weight: bold; /* Make caption bold */
+}
+
 
 @media (min-width: 640px) {
   .responsive-text {

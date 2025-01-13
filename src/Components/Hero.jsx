@@ -10,9 +10,7 @@ export default function Hero() {
   
         const { t, i18n } = useTranslation(undefined, { useSuspense: false });
         const { langCode } = useContext(SystemContext);
-        console.log('Current language:', langCode); // Debug: Log current language
-        console.log(t('UNIQUE DESIGNS, EXTRAORDINARY RESULTS'));
-  return (
+       return (
     <div id='inicio' className='relative overflow-hidden'>
       <section className="bg-gray-100 dark:bg-gray-900">
       <div className="w-full px-4 mx-auto sm:py-[180px] lg:py-[300px] lx:py-[300px]" style={{backgroundImage: `url(${mainslide})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>

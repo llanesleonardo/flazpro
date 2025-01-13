@@ -15,9 +15,7 @@ export default function Header() {
   
           const { t, i18n } = useTranslation(undefined, { useSuspense: false });
           const { langCode } = useContext(SystemContext);
-          console.log('Current language:', langCode); // Debug: Log current language
-          console.log(t('UNIQUE DESIGNS, EXTRAORDINARY RESULTS'));
-
+      
   const handleClick = () => {
     window.open('https://wa.me/15202897508', '_blank', 'noopener,noreferrer');
   }

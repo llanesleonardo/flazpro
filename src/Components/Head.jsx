@@ -1,33 +1,40 @@
-
-import { useState, useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SystemContext } from "../contexts/SystemContext.jsx";
-
+import ToggleSwitch from './ToggleSwitch.jsx'; // Import the ToggleSwitch component
 
 function Head() {
     const { t, i18n } = useTranslation();
+    
+    // Save scroll position before changing language
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            localStorage.setItem('scrollPosition', scrollY);
+        };
 
-    const { langCode,
-        changeLangCode } = useContext(SystemContext);
-    const setLanguage = (lang) => {
-        changeLangCode(lang);
-    }
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    // Restore scroll position after language change
+    useEffect(() => {
+        const savedScrollY = localStorage.getItem('scrollPosition');
+        if (savedScrollY) {
+            window.scrollTo(0, parseInt(savedScrollY));
+        }
+    }, []); // This effect runs only once on mount
+
     return (
-        <>
-            <div className='head' style={{ height: '20px' }}>
-                <div className='languageNav' style={{ background: '#084e21', width: '100%' }}>
-                    <ul className='navBarLeft'>
-                        <li className='languageSelect'>
-                            <select onChange={(e) => setLanguage(e.target.value)} value={i18n.language}>
-                                <option value="en">English</option>
-                                <option value="es">Espanol</option>
-                            </select>
-                        </li>
-                    </ul>
-                </div>
+        <div className='head'>
+            <div className='languageNav' style={{ background: 'transparent', width: '100%', padding: '10px' }}>
+                <ToggleSwitch /> {/* Include the ToggleSwitch component here */}
             </div>
-        </>
-    )
+        </div>
+    );
 }
 
-export default Head
+export default Head;

@@ -8,9 +8,7 @@ export default function AboutUs() {
   
         const { t, i18n } = useTranslation(undefined, { useSuspense: false });
         const { langCode } = useContext(SystemContext);
-        console.log('Current language:', langCode); // Debug: Log current language
-        console.log(t('UNIQUE DESIGNS, EXTRAORDINARY RESULTS'));
-  
+      
   return (
     <div id='nosotros' className='bg-white'>
        <section className="w-full py-16 bg-white dark:bg-white">
