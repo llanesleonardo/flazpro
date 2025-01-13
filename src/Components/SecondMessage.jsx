@@ -17,7 +17,7 @@ export default function SecondMessage() {
       >
         <div className="w-full mx-auto py-14 px-4 text-center relative z-10">
           <h1 className="md:text-6xl lg:text-6xl xl:text-8xl font-bold mb-6 text-white">{t('Your spaces deserve to stand out')}</h1>
-          <p className="text-3xl md:text-3xl mb-8 text-white">¡Solicita tu cotización ahora!</p>
+          <p className="text-3xl md:text-3xl mb-8 text-white">{t('Request your quote now!')}</p>
         </div>
       </div>
     </div>

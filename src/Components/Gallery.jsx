@@ -1,4 +1,6 @@
-import React from 'react';
+import { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SystemContext } from "../contexts/SystemContext.jsx"
 import g1 from '../assets/gallery/g1.jpg'
 import g2 from '../assets/gallery/g2.jpg'
 import g3 from '../assets/gallery/g3.jpg'
@@ -18,6 +20,10 @@ const GridItem = ({ imageUrl, title }) => (
 );
 
 export default function ImageGrid() {
+
+          const { t, i18n } = useTranslation(undefined, { useSuspense: false });
+          const { langCode } = useContext(SystemContext);
+
   const items = [
     { id: 1, imageUrl: g1, title: '' },
     { id: 2, imageUrl: g2, title: '' },
@@ -31,7 +37,7 @@ export default function ImageGrid() {
     <div id='galeria' className=" px-8 py-16 bg-white">
       <div className="container mx-auto">
       <h1 className="text-[#1058a5] text-4xl md:text-5xl font-bold text-center mb-12">
-            Galeria
+            {t('Gallery')}
           </h1>      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map((item) => (

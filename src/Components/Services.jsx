@@ -1,4 +1,7 @@
-import React from 'react'
+
+import { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SystemContext } from "../contexts/SystemContext.jsx"
 import { useSpringCarousel } from 'react-spring-carousel'
 import arrowleft from '../assets/icons/arrowiconleft.png'
 import arrowright from '../assets/icons/arrowiconright.png'
@@ -29,7 +32,6 @@ const CarouselItem = ({ color, children }) => (
   </div>
 );
 
-import { useState, useEffect } from 'react';
 
 function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);
@@ -52,7 +54,8 @@ export default function Services() {
   const isLargeScreen = useMediaQuery('(min-width: 1025px)');
   const isMediumScreen = useMediaQuery('(min-width: 768px)');
   const [itemsPerSlide, setItemsPerSlide] = useState(3);
-
+        const { t, i18n } = useTranslation(undefined, { useSuspense: false });
+        const { langCode } = useContext(SystemContext);
   useEffect(() => {
     if (isLargeScreen) {
       setItemsPerSlide(3);
@@ -77,9 +80,9 @@ items: [
         <img src={yardmaintenance} className='absolute bg-transparent bottom-[-90px] left-[30%]' alt="Yard Maintenance" />
       </div>
       <div className='bg-white pt-20 pb-6 px-6'>
-        <h3 className='text-center text-[#1058a5] font-bold pb-6'>Yard Maintenance</h3>
+        <h3 className='text-center text-[#1058a5] font-bold pb-6'>{t('Yard Maintenance')}</h3>
         <p className='text-justify'>
-        Yard maintenance involves regular care, including mowing, pruning, weeding, and fertilizing. This ensures the health and aesthetics of outdoor spaces, keeping them functional and attractive across seasons for both residential and commercial properties.
+          {t('Yard maintenance involves regular care, including mowing, pruning, weeding, and fertilizing. This ensures the health and aesthetics of outdoor spaces, keeping them functional and attractive across seasons for both residential and commercial properties.')}
         </p>
 
       </div>
@@ -93,9 +96,9 @@ items: [
         <img src={pavers} className='absolute bg-transparent bottom-[-90px] left-[30%]' alt="Pavers" />
       </div>
       <div className='bg-white pt-20 pb-6 px-6'>
-        <h3 className='text-center text-[#1058a5] font-bold pb-6'>Pavers</h3>
+        <h3 className='text-center text-[#1058a5] font-bold pb-6'>{t('Pavers')}</h3>
         <p className='text-justify'>
-        Paver maintenance includes cleaning, sealing, and repairing paved surfaces to preserve their structure and appearance. Regular upkeep ensures pavers remain attractive, durable, and in excellent condition across all seasons.
+        {t('Paver maintenance includes cleaning, sealing, and repairing paved surfaces to preserve their structure and appearance. Regular upkeep ensures pavers remain attractive, durable, and in excellent condition across all seasons.')}
         </p>
 
       </div>
@@ -198,7 +201,7 @@ items: [
       <section className="w-full md:py-12 xl:py-16 lg:py-16 xl:bg-cover lg:bg-cover bg-center" style={{ backgroundImage: `url(${graylines})` }}>
         <div className="container mx-auto px-12">
           <h1 className="text-[#1058a5] md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-12">
-            ¿Qué Ofrecemos?
+            {t('What Do We Offer?')}
           </h1>
           <div className="relative">
             <button 
