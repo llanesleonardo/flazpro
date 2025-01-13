@@ -18,10 +18,10 @@ i18n
         fallbackLng: 'en', // Fallback language
         interpolation: {
             escapeValue: false // React already does escaping
-        },
-        react: {
-            useSuspense: false
-          }
-    });
+        }
+    },function(err, t) {
+        if (err) console.error('i18n init error', err);
+        console.log('i18n initialized', i18n.getResourceBundle(i18n.language, 'translation'));
+      });
 
 export default i18n;

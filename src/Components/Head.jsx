@@ -18,7 +18,6 @@ function Head() {
                 <div className='languageNav' style={{ background: '#084e21', width: '100%' }}>
                     <ul className='navBarLeft'>
                         <li className='languageSelect'>
-                            {/**<p className='langtitle'>{t('language')}</p> */}
                             <select onChange={(e) => setLanguage(e.target.value)} value={i18n.language}>
                                 <option value="en">English</option>
                                 <option value="es">Espanol</option>
