@@ -20,6 +20,7 @@ export default function PublicHome() {
         <MainMessage />
         <AboutUs />
         <Services />
+        <Reviews/>
         <SecondMessage />
         <Gallery />
         <Map />
