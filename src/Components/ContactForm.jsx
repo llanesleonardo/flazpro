@@ -92,6 +92,11 @@ const ContactForm = () => {
       } else {
         setStatus('success');
         setMessage('Mensaje registrado y enviado.');
+        setEmail('')
+        setFullName('')
+        setMessageText('')
+        setSubject('')
+        setPhoneNumber('')
       }
       
     } catch (error) {
