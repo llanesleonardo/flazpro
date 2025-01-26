@@ -183,7 +183,7 @@ const ContactForm = () => {
 
       {status === "error" && <div className="mt-4 text-red-500" dangerouslySetInnerHTML={{__html: message}} />}
       {errors.server && <span className="error">{errors.server}</span>}
-      {status === "success" && <div className="mt-4 text-green-500">¡Formulario enviado exitosamente!</div>}
+      {status === "success" && <div className="mt-4 text-green-500">Form submitted successfully!        </div>}
     </form>
     </div>
   );
