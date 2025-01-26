@@ -33,11 +33,10 @@ export default function Header() {
     { href: "#galeria", text: t('Gallery') },
     { href: "#contact", text: t('Contact')},
   ];
-
+//    { icon: instagram, href: '#' },
+//{ icon: facebook, href: '#' }
   const socialIcons = [
-    { icon: whatsapp, href: '#' },
-    { icon: instagram, href: '#' },
-    { icon: facebook, href: '#' }
+    { icon: whatsapp, href: 'https://wa.me/15202897508' },
   ];
 
   return (
