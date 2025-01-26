@@ -125,7 +125,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div id="reviews2" className="bg-white py-10">
+    <div id="contact" className="bg-white py-10">
     <form className="max-w-2xl mx-auto p-6 bg-white" onSubmit={handleSubmit}>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <input

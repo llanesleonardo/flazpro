@@ -23,7 +23,7 @@ export default function Hero() {
             {t('TELLS A STORY')}
             </h1>
            <p className="text-right mt-4 text-3xl text-white dark:text-gray-300">
-            ¿Listo para empezar la tuya?          
+            {t('Ready to start yours?')}         
               </p>
            </div>
 
