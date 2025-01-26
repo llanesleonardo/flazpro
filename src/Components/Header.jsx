@@ -41,6 +41,7 @@ export default function Header() {
 
   return (
     <div className='bg-white fixed w-full z-[99999]'>
+      
       <header className='w-full'>
         <div className='top-bar flex items-center justify-between px-4 py-1 diagonal-split'>
           <div className='slogan'>
