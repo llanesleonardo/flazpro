@@ -14,6 +14,7 @@ const ContactForm = () => {
   const [status, setStatus] = useState('');
   const [recaptchaValue, setRecaptchaValue] = useState('');
   const [loading, setLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState(""); // For showing status updates
 
   const handleRecaptchaChange = (value) => {
     setRecaptchaValue(value);
@@ -32,10 +33,11 @@ const ContactForm = () => {
 
     // ... (rest of your existing validation logic)
 
-    setLoading(true);
-    setStatus('sending');
+   //setLoading(true);
+   setStatusMessage("Enviando..."); // Initial message
 
     try {
+      setLoading(true); // Start the spinner
       const objectValues ={
         "email_address": email,
         "status": "subscribed",
@@ -64,15 +66,19 @@ const ContactForm = () => {
       if (!response.ok) {
         throw new Error(res.error || `HTTP error! Status: ${response.status}`);
     
-      } else {
-        setStatus('success');
-        setMessage('Mensaje registrado y enviado.');
-        setEmail('')
-        setFullName('')
-        setMessageText('')
-        setSubject('')
-        setPhoneNumber('')
-      }
+      } 
+
+       // If the API call is successful, proceed with the redirect process
+       setTimeout(() => {
+        setStatusMessage(
+          "GRACIAS POR SU INFORMACIÓN. ESTÁ SIENDO REDIRIGIDO A UNA PÁGINA DE BIENVENIDA."
+        );
+    
+        // Start redirect after displaying the second message
+        setTimeout(() => {
+          setLoading(false); // Stop the spinner after redirect
+        }, 2000);
+      }, 1000); // Initial 1-second delay
       
     } catch (error) {
       setStatus('error');
@@ -80,8 +86,16 @@ const ContactForm = () => {
         ...prevErrors,
         server: error.message || "Algo salió mal, por favor inténtelo en un momento.",
       }));
-    } finally {
       setLoading(false);
+    } finally {
+      setStatus('success');
+        setMessage('Mensaje registrado y enviado.');
+        setEmail('')
+        setFullName('')
+        setMessageText('')
+        setSubject('')
+        setPhoneNumber('')
+    
     }
   };
 
@@ -91,7 +105,7 @@ const ContactForm = () => {
       <div id="reviews" className="bg-white py-10 flex justify-center items-center">
         <div className="text-center">
           <Spinner color="#d82f87" size={50} speed={1} />
-          <p className="mt-4 text-gray-600">Enviando...</p>
+          <p className="mt-4 text-gray-600">{statusMessage}</p>
         </div>
       </div>
     );
