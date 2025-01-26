@@ -1,12 +1,17 @@
-import React from 'react';
-
+import { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SystemContext } from "../contexts/SystemContext.jsx"
 const Reviews = () => {
+
+  const { t, i18n } = useTranslation(undefined, { useSuspense: false });
+  const { langCode } = useContext(SystemContext);
+
   return (
     <div id="reviews" className="bg-gray-100 py-10">
       <div className="mx-auto flex items-center justify-center space-x-4 bg-gray-100 p-10 rounded-lg shadow-md max-w-[350px]">
         {/* Title */}
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Rate Us
+          {t('Rate Us')}
         </h2>
 
         {/* Google Logo */}
@@ -57,7 +62,7 @@ const Reviews = () => {
           target="_blank"
           className="text-blue-500 underline"
         >
-          Leave a Google Review
+          {t('Leave a Google Review')}
         </a>
       </div>
     </div>

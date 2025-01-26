@@ -1,4 +1,6 @@
-import React from 'react';
+import { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SystemContext } from "../contexts/SystemContext.jsx"
 import logoblue from '../assets/logos/logoblue.png';
 import phonewhite from '../assets/icons/phoneiconwhite.png'
 import mapiconwhite from '../assets/icons/mapiconwhite.png'
@@ -10,6 +12,10 @@ import whastappicon from '../assets/icons/whatsappicon.png'
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
+
+     const { t, i18n } = useTranslation(undefined, { useSuspense: false });
+            const { langCode } = useContext(SystemContext);
+
   return (
     <footer className="bg-[#1058a5] text-white pt-12 ">
       <div className="w-full mx-auto px-4 flex justify-around items-center">
@@ -30,7 +36,7 @@ export default function Footer() {
           </div>
           <div className='flex items-center space-x-2'>
             <img src={mapiconwhite} alt="phone icon" className="h-8 w-8" />
-            <p className="text-white">Tucson areas , AZ.</p>
+            <p className="text-white">Tucson Area, AZ.</p>
           </div>
           <div className='flex items-center space-x-2'>
             <img src={emailiconwhite} alt="phone icon" className="h-8 w-8" />
@@ -49,7 +55,7 @@ export default function Footer() {
       {/* Copyright Section */}
       <div className="border-t border-gray-700 mt-8 py-4 text-center bg-custom-green">
         <p className="text-white font-bold text-2xl">
-          Todos los derechos reservados {new Date().getFullYear()} © FL | ARIZONA PRO LANDSCAPING, LLC. 
+          {t('All Rights Reserved')} {new Date().getFullYear()} © FL | ARIZONA PRO LANDSCAPING, LLC. 
         </p>
       </div>
     </footer>
