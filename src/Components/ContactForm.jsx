@@ -96,6 +96,12 @@ const ContactForm = () => {
         }, 2000);
       }, 1000); // Initial 1-second delay
       setStatus('success')
+      setEmail('');
+      setFullName('');
+      setPhoneNumber(''); 
+      setSubject('');
+      setMessageText('');
+      
     } catch (error) {
       setStatus('error');
       setErrors((prevErrors) => ({
