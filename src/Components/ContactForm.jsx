@@ -22,7 +22,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+    setErrors({});
     // Validation logic (keep existing)
     if (!fullName.trim()) {
       setErrors(prevErrors => ({
@@ -31,10 +31,26 @@ const ContactForm = () => {
       }));
     }
 
-    // ... (rest of your existing validation logic)
+    setLoading(true); // Start the spinner
+    setStatusMessage("Enviando..."); // Initial message
 
-   //setLoading(true);
-   setStatusMessage("Enviando..."); // Initial message
+
+      // Validation
+      const validationErrors = {};
+      if (!fullName.trim()) validationErrors.fullName = "Name is required.";
+      if (!subject.trim()) validationErrors.subject = "Subject is required.";
+      if (!email) {
+        validationErrors.email = "El Correo electrónico es requerido.";
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        validationErrors.email = "Formato no es válido.";
+      }
+      if (!phoneNumber.trim()) validationErrors.phoneNumber = "Phone number is required.";
+  
+      if (Object.keys(validationErrors).length > 0) {
+        setErrors(validationErrors);
+        setLoading(false); // Stop the spinner if there are errors
+        return;
+      }
 
     try {
       setLoading(true); // Start the spinner
@@ -71,7 +87,7 @@ const ContactForm = () => {
        // If the API call is successful, proceed with the redirect process
        setTimeout(() => {
         setStatusMessage(
-          "GRACIAS POR SU INFORMACIÓN. ESTÁ SIENDO REDIRIGIDO A UNA PÁGINA DE BIENVENIDA."
+          "THANK YOU FOR YOUR DATA. YOU ARE BEING REDIRECTED TO A WELCOME PAGE."
         );
     
         // Start redirect after displaying the second message
@@ -87,22 +103,13 @@ const ContactForm = () => {
         server: error.message || "Algo salió mal, por favor inténtelo en un momento.",
       }));
       setLoading(false);
-    } finally {
-      setStatus('success');
-        setMessage('Mensaje registrado y enviado.');
-        setEmail('')
-        setFullName('')
-        setMessageText('')
-        setSubject('')
-        setPhoneNumber('')
-    
-    }
+    } 
   };
 
   // If loading, show spinner
   if (loading) {
     return (
-      <div id="reviews" className="bg-white py-10 flex justify-center items-center">
+      <div id="reviews1" className="bg-white py-10 flex justify-center items-center">
         <div className="text-center">
           <Spinner color="#d82f87" size={50} speed={1} />
           <p className="mt-4 text-gray-600">{statusMessage}</p>
@@ -112,7 +119,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div id="reviews" className="bg-white py-10">
+    <div id="reviews2" className="bg-white py-10">
     <form className="max-w-2xl mx-auto p-6 bg-white" onSubmit={handleSubmit}>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <input
@@ -175,6 +182,7 @@ const ContactForm = () => {
       </button>
 
       {status === "error" && <div className="mt-4 text-red-500" dangerouslySetInnerHTML={{__html: message}} />}
+      {errors.server && <span className="error">{errors.server}</span>}
       {status === "success" && <div className="mt-4 text-green-500">¡Formulario enviado exitosamente!</div>}
     </form>
     </div>
