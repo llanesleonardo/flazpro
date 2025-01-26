@@ -111,7 +111,7 @@ const ContactForm = () => {
     return (
       <div id="reviews1" className="bg-white py-10 flex justify-center items-center">
         <div className="text-center">
-          <Spinner color="#d82f87" size={50} speed={1} />
+          <Spinner color="#1058a5" size={50} speed={1} />
           <p className="mt-4 text-gray-600">{statusMessage}</p>
         </div>
       </div>
