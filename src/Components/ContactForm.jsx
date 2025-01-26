@@ -87,7 +87,7 @@ const ContactForm = () => {
        // If the API call is successful, proceed with the redirect process
        setTimeout(() => {
         setStatusMessage(
-          "THANK YOU FOR YOUR DATA. YOU ARE BEING REDIRECTED TO A WELCOME PAGE."
+          "THANK YOU FOR SUBMITTING YOUR DATA."
         );
     
         // Start redirect after displaying the second message
@@ -95,7 +95,7 @@ const ContactForm = () => {
           setLoading(false); // Stop the spinner after redirect
         }, 2000);
       }, 1000); // Initial 1-second delay
-      
+      setStatus('success')
     } catch (error) {
       setStatus('error');
       setErrors((prevErrors) => ({
