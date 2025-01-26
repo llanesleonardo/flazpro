@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState, useContext, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useTranslation } from 'react-i18next';
+import { SystemContext } from "../contexts/SystemContext.jsx"
 import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
 
@@ -15,6 +17,11 @@ const ContactForm = () => {
   const [recaptchaValue, setRecaptchaValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(""); // For showing status updates
+
+
+  const { t, i18n } = useTranslation(undefined, { useSuspense: false });
+  const { langCode } = useContext(SystemContext);
+  
 
   const handleRecaptchaChange = (value) => {
     setRecaptchaValue(value);
@@ -126,13 +133,16 @@ const ContactForm = () => {
 
   return (
     <div id="contact" className="bg-white py-10">
+    <h1 className="text-[#1058a5] text-4xl md:text-5xl font-bold text-center mb-12">
+            {t('Contact Us')}
+       </h1> 
     <form className="max-w-2xl mx-auto p-6 bg-white" onSubmit={handleSubmit}>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <input
           type="text"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          placeholder="Nombre Completo"
+          placeholder={t('Full Name')}
           className="w-full px-4 py-2 border rounded-md"
           required
         />
@@ -142,7 +152,7 @@ const ContactForm = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Correo electrónico"
+          placeholder={t('Email')}
           className="w-full px-4 py-2 border rounded-md"
           required
         />
@@ -152,7 +162,7 @@ const ContactForm = () => {
           type="tel"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
-          placeholder="Teléfono"
+          placeholder={t("Phone Number")}
           className="w-full px-4 py-2 border rounded-md"
           required
         />
@@ -162,7 +172,7 @@ const ContactForm = () => {
           type="text"
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
-          placeholder="Asunto"
+          placeholder={t('Subject')}
           className="w-full px-4 py-2 border rounded-md"
         />
       </div>
@@ -170,7 +180,7 @@ const ContactForm = () => {
       <textarea
         value={messageText}
         onChange={(e) => setMessageText(e.target.value)}
-        placeholder="Comentarios"
+        placeholder={t('Comments')}
         className="w-full px-4 py-2 border rounded-md h-32 mb-4"
         required
       />
@@ -184,12 +194,12 @@ const ContactForm = () => {
         type="submit" 
         className="w-full bg-custom-green text-white py-3 rounded-lg hover:bg-custom-green transition duration-300 text-lg font-semibold"
       >
-        ENVIAR
+        {t('SEND')}
       </button>
 
       {status === "error" && <div className="mt-4 text-red-500" dangerouslySetInnerHTML={{__html: message}} />}
       {errors.server && <span className="error">{errors.server}</span>}
-      {status === "success" && <div className="mt-4 text-green-500">Form submitted successfully!        </div>}
+      {status === "success" && <div className="mt-4 text-green-500">{t('Form submitted successfully!')}</div>}
     </form>
     </div>
   );
