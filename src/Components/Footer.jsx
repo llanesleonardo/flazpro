@@ -48,7 +48,7 @@ export default function Footer() {
         <div className="flex  gap-4 space-x-4 mb-6">
       {/*<img src={facewhite} className='h-[50px]' />
       <img src={instacon} className='h-[50px]'/>*/}
-     <a style={{textDecoration:'none'}} href="https://wa.me/15202897508"> <img src={whastappicon} className='h-[30px]'/></a>
+     <a style={{textDecoration:'none'}} href="https://wa.me/15202897508" target='_blank'> <img src={whastappicon} className='h-[30px]'/></a>
         </div>
       </div>
 

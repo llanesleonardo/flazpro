@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { SystemContext } from "../contexts/SystemContext.jsx"
 import { MdOutlineMenu, MdClose } from 'react-icons/md';
 
 const MobileMenu = ({ logoSrc, menuItems, navItems, socialIcons, handleClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const { t, i18n } = useTranslation(undefined, { useSuspense: false });
+          const { langCode } = useContext(SystemContext);
 
   return (
     <div className="lg:hidden">
@@ -29,7 +34,7 @@ const MobileMenu = ({ logoSrc, menuItems, navItems, socialIcons, handleClick }) 
             ))}
             <li className="py-2 w-full">
               <button onClick={handleClick} className="bg-custom-green text-white font-bold py-2 px-4 rounded-full md:w-2/4 xl:w-full lg:w-full">
-                Agendar Ahora!
+                {t('Book Now!')}
               </button>
             </li>
             {navItems.map((item, index) => (
