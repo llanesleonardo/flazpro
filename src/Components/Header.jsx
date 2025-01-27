@@ -45,7 +45,7 @@ export default function Header() {
       <header className='w-full'>
         <div className='top-bar flex items-center justify-between px-4 py-1 diagonal-split'>
           <div className='slogan'>
-            <p className='py-0 text-white font-bold'>Slogan de la marca</p>
+            <p className='py-0 text-white font-bold'>{t('Free Quotes! Call Now!')}</p>
           </div>
           <div className='social'>
             <ul className='flex items-center justify-center px-4 py-1'>
