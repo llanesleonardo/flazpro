@@ -112,10 +112,9 @@ items: [
         <img src={grass} className='absolute bg-transparent bottom-[-90px] left-[30%]' alt="Grass Maintenance" />
       </div>
       <div className='bg-white pt-20 pb-6 px-6'>
-        <h3 className='text-center text-[#1058a5] font-bold pb-6'>Grass & Artificial Grass</h3>
+        <h3 className='text-center text-[#1058a5] font-bold pb-6'>{t('Grass & Artificial Grass')}</h3>
         <p className='text-justify'>
-        Grass maintenance includes mowing, watering, and fertilizing, while artificial grass requires debris removal and occasional rinsing. Both options ensure a beautiful lawn, with artificial grass offering low-maintenance durability.
-        </p>
+{t('Grass maintenance includes mowing, watering, and fertilizing, while artificial grass requires debris removal and occasional rinsing. Both options ensure a beautiful lawn, with artificial grass offering low-maintenance durability.')}        </p>
 
       </div>
     </CarouselItem>
@@ -128,9 +127,9 @@ items: [
         <img src={irrigationsystem} className='absolute bg-transparent bottom-[-90px] left-[30%]' alt="Irrigation Systems" />
       </div>
       <div className='bg-white pt-20 pb-6 px-6'>
-        <h3 className='text-center text-[#1058a5] font-bold pb-6'>Irrigation Systems</h3>
+        <h3 className='text-center text-[#1058a5] font-bold pb-6'>{t('Irrigation Systems')}</h3>
         <p className='text-justify'>
-        Irrigation system maintenance ensures water efficiency through leak checks, cleaning, and adjustments. Regular care promotes plant health, prevents costly repairs, and extends the system's lifespan.
+        {t("Irrigation system maintenance ensures water efficiency through leak checks, cleaning, and adjustments. Regular care promotes plant health, prevents costly repairs, and extends the system's lifespan.")}
         </p>
         <br/>
 
@@ -145,9 +144,9 @@ items: [
         <img src={plantingpruning} className='absolute bg-transparent bottom-[-90px] left-[30%]' alt="Planting & Pruning" />
       </div>
       <div className='bg-white pt-20 pb-6 px-6'>
-        <h3 className='text-center text-[#1058a5] font-bold pb-6'>Planting & Pruning</h3>
+        <h3 className='text-center text-[#1058a5] font-bold pb-6'>{t('Planting & Pruning')}</h3>
         <p className='text-justify'>
-        Planting ensures proper growth with soil preparation and spacing, while pruning removes unnecessary parts to enhance plant health and aesthetics. Both are essential for long-term vitality.
+        {t('Planting ensures proper growth with soil preparation and spacing, while pruning removes unnecessary parts to enhance plant health and aesthetics. Both are essential for long-term vitality.')}
         </p>
         <br/>
 
@@ -162,9 +161,9 @@ items: [
         <img src={palmtrees} className='absolute bg-transparent bottom-[-90px] left-[30%]' alt="Palm Trees" />
       </div>
       <div className='bg-white pt-20 pb-6 px-6'>
-        <h3 className='text-center text-[#1058a5] font-bold pb-6'>Palm Trees</h3>
+        <h3 className='text-center text-[#1058a5] font-bold pb-6'>{t('Palm Trees')}</h3>
         <p className='text-justify'>
-        Palm tree care includes proper planting, selective pruning, and pest control. Regular maintenance ensures their iconic look, resilience, and long-lasting health.
+        {t('Palm tree care includes proper planting, selective pruning, and pest control. Regular maintenance ensures their iconic look, resilience, and long-lasting health.')}
         </p>
         <br/>
         <br/>
@@ -179,9 +178,9 @@ items: [
       <img src={gravel} className='absolute bg-transparent bottom-[-90px] left-[30%]' alt="Gravel" />
     </div>
     <div className='bg-white pt-20 pb-6 px-6 '>
-      <h3 className='text-center text-[#1058a5] font-bold pb-6'>Gravel</h3>
+      <h3 className='text-center text-[#1058a5] font-bold pb-6'>{t('Gravel')}</h3>
       <p className='text-justify'>
-      Gravel maintenance involves leveling, replenishing, and removing debris to keep surfaces functional and visually appealing. Proper care ensures durability and enhances outdoor aesthetics.
+      {t('Gravel maintenance involves leveling, replenishing, and removing debris to keep surfaces functional and visually appealing. Proper care ensures durability and enhances outdoor aesthetics.')}
       </p>
     <br/>
      {/* <div className='text-center pt-10'>
