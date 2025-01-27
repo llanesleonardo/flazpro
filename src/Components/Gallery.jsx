@@ -1,12 +1,12 @@
 import { useState, useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SystemContext } from "../contexts/SystemContext.jsx"
-import g1 from '../assets/gallery/g1.jpg'
-import g2 from '../assets/gallery/g2.jpg'
-import g3 from '../assets/gallery/g3.jpg'
-import g4 from '../assets/gallery/g4.jpg'
-import g5 from '../assets/gallery/g5.jpg'
-import g6 from '../assets/gallery/g6.jpg'
+import g1 from '../assets/gallery/fl1.jpg'
+import g2 from '../assets/gallery/fl2.jpg'
+import g3 from '../assets/gallery/fl3.jpg'
+import g4 from '../assets/gallery/fl4.jpg'
+import g5 from '../assets/gallery/fl5.jpg'
+import g6 from '../assets/gallery/fl7.jpg'
 
 const GridItem = ({ imageUrl, title }) => (
   <div 
