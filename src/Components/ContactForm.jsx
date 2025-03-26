@@ -69,7 +69,8 @@ const ContactForm = () => {
           "LNAME": "-",
           "PHONE": phoneNumber,
           "MMERGE8": subject,
-          "MMERGE7": messageText
+          "MMERGE7": messageText,
+          "MMERGE6": 'CONTACTFORM'
         }
       }
 
